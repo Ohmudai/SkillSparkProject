@@ -1,0 +1,13 @@
+#sidebar{
+  position: absolute;
+  top: 10px;
+  bottom: 0px;
+  padding: 10px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  button{
+    width: 100%;
+  }
+}
