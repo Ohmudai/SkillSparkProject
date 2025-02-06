@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Private({children}) {
   const Navigate= useNavigate();
 
-  const {token}= useContext(AuthContext); 
+  const token= sessionStorage.getItem("token") ; 
+  
   if(token){
     return children;
   }

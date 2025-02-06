@@ -15,7 +15,7 @@ const [formData,setFormData] = useState({
 
 
 const Navigate = useNavigate();
-const {token,setToken}=useContext(AuthContext);
+;
 
 
 
@@ -25,8 +25,10 @@ const handleChange = (e)=>{
 const handleSubmit = async (e)=>{
   e.preventDefault();
   const response = await axios.post("http://localhost:3000/user/login",formData);
+  localStorage.setItem('username',formData.email);
   
-  setToken(response.data.token);
+  sessionStorage.setItem("token",response.data.token);
+  console.log(response.data.token);
   if(response.data.success==true){
     
     Navigate('/dashboard');

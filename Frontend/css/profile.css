@@ -1,0 +1,20 @@
+#content_div{
+  width: inherit;
+  height: inherit;
+}
+
+#profile_pic{
+  margin: 20px;
+  border: 1px solid red;
+  width: 200px;
+  height: 200px;
+  
+  border-radius: 50%;
+  
+  img{
+    object-fit: contain;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+}

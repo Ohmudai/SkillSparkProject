@@ -12,12 +12,15 @@ export const User = async (req,res)=>{
     
     
     if(userDetails &&  await verifyHash(userDetails.password,req.body.password) ){
+        verifyToken(token);
+     
       return res.status(200).json({
         success:true,
         message:"User exists",
         data:userDetails,
         token:token
       });
+      
     }
     else{
       return res.status(400).json({

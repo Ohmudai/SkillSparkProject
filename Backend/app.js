@@ -4,6 +4,9 @@ import loginRouter from './src/routes/login.route.js'
 import userRouter from './src/routes/user.routes.js'
 import registerRouter from './src/routes/register.route.js'
 import cors from 'cors';
+import UploadRouter from './src/routes/upload.route.js'
+
+
 const app = express();
 
 //Global middleware
@@ -16,7 +19,7 @@ app.use(express.urlencoded({extended:true}));
 
 const corsOptions = {
   origin: ["http://localhost:5173"], // Allow only this origin
-  methods: 'GET,POST', // Allow only GET and POST methods
+  methods: ['GET,POST'], // Allow only GET and POST methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
   credentials: true, // Allow cookies to be sent
 };
@@ -29,6 +32,8 @@ app.use("/api/user",userRouter);
 
 app.use("/register",registerRouter);
 app.use("/user",loginRouter);
+
+app.use('/upload',UploadRouter);
 
 export default app;
 
