@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
-import { Register } from "../models/register.model.js";
+import User from '../models/user.model.js';
 
 
 export const findUser = async (email)=>{
 
-  return await Register.findOne({email});
+  return await User.findOne({email});
 
 }
-

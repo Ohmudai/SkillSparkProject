@@ -7,13 +7,13 @@ export const User = async (req,res)=>{
     req.body.email=req.body.email.toLowerCase();
     
     const userDetails = await findUser(req.body.email);
-    console.log(userDetails);
+   
     const token =getToken(req.body.email);
     
     
     if(userDetails &&  await verifyHash(userDetails.password,req.body.password) ){
         verifyToken(token);
-     
+      
       return res.status(200).json({
         success:true,
         message:"User exists",

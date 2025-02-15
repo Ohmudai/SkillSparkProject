@@ -28,14 +28,13 @@ const handleSubmit = async (e)=>{
   localStorage.setItem('username',formData.email);
   
   sessionStorage.setItem("token",response.data.token);
-  console.log(response.data.token);
-  if(response.data.success==true){
-    
-    Navigate('/dashboard');
-  }
-  else{
+  if(!response.data.success){
     alert("wrong user credentials");
     Navigate('/login');
+    
+  }
+  else{
+    Navigate('/dashboard');
   }
   
   

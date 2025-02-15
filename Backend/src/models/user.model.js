@@ -1,53 +1,33 @@
 import mongoose from "mongoose";
 
 
-const userSchema = new mongoose.Schema({
-
-name:{
-  type:String,
-  required:true,
-},
-
-email:{
-  type:String,
-  required:true,
-  unique:true,
-},
-
-password:{
-  type:String,
-  required:true,
-},
-
-gender:{
-  type:String,
-  required:true,
-  enum:["male","female"]
-},
-// Array of followers
-followers:[{
-  type:mongoose.Schema.Types.ObjectId,
-  ref:"User",
-},],
-
-  following:[{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"User"
-  },],
-
-  profilrPic:{
-    id:String,
-    url:String,
+const registerSchema = mongoose.Schema({
+  userName:{
+    type:String,
+    required:true,
+  },
+  email:{
+    type:String,
+    required:true,
+    unique:true,
   },
 
-},
-{
-  timestamps:true,
-}
-);
+  password:{
+    type:String,
+    required:true,
+  },
+  gender:{
+    type:String,
+    
+    enum:["male","female"]
+  },
+  
+    profilePic:{
+      id:String,
+      url:{type:String,default:'https://res.cloudinary.com/dx0eekot8/image/upload/v1739286472/default_profile_image_ku4buz.jpg'},
+    },
+});
 
-export const User = mongoose.model("User",userSchema);
+ const  User = mongoose.model("User",registerSchema);
 
-
-
-
+export default User;

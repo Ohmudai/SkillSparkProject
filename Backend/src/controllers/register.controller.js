@@ -1,5 +1,5 @@
 import { error } from "console";
-import { createUser } from "../viewModel/register.viewmodel.js";
+import { createUser } from "../viewModel/user.viewmodel.js";
 import validator from 'validator'
 export const  register = async (req,res)=>{
  
