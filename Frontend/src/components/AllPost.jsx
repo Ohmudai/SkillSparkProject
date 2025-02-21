@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "../../css/Allpost.css";
 import { useNavigate } from "react-router";
+import {Helmet} from 'react-helmet'
+
 
 export default function AllPost() {
   const [comment, setComment] = useState("");
@@ -67,6 +69,7 @@ export default function AllPost() {
 
   return (
     <>
+    <Helmet><title>All post</title></Helmet>
       <div id="outlet">
         <div id="postSection" style={{ margin: "20px" }}>
           {post.length == 0 ? (

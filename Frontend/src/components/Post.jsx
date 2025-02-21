@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react'
 import axios from 'axios';
 import '../../css/post.css'
 import { useNavigate } from 'react-router';
+import {Helmet} from 'react-helmet'
+
 
 export default function Post() {
 
@@ -15,7 +17,7 @@ export default function Post() {
   const [caption,setCaption] = useState('');
   const [filedata,setFiledata]=useState(null);
   const [comment,setComment] = useState('');
-  
+  const [dropdown,setDropdown]=useState({});
   const formdata = new FormData();
   const [isFormVisible,setIsFormVisible]=useState(false);
   const [previewsource,setPreviewSource]=useState('');
@@ -156,7 +158,11 @@ const Navigate = useNavigate();
     
   }
     
-
+const handleDropdown = (postId)=>{
+  setDropdown(prevState=>({
+    ...prevState,[postId]:!prevState[postId]
+  }));
+};
 
     
   useEffect(()=>{
@@ -165,6 +171,7 @@ const Navigate = useNavigate();
  
   return (
     <>
+    <Helmet><title>Post</title></Helmet>
           <div id='outlet'>
       <button onClick={openForm}> Create Post</button>
 
@@ -189,10 +196,16 @@ const Navigate = useNavigate();
 
         <div id='postSection' style={{margin:"20px"}}>
            {post.length==0?<div>NO POST AVAILABLE</div>:post.map((eachpost)=>{return <div id='postCard'>
+            <div id='dropdown_container'>
+              <button onClick={()=>{handleDropdown(eachpost._id)}}>...</button>
+              {dropdown[eachpost._id] && (<button id='dropdown_menu' onClick={()=>{handleClick(eachpost._id)}} value={createdAt}>Delete post</button>)}
+
+
+            </div>
             <p>Caption: {eachpost.caption}</p>
             
             <img src={eachpost.post.imageurl} style={{width:"300px",height:"300px"}}/>
-            <button onClick={()=>{handleClick(eachpost._id)}} value={createdAt}>Delete post</button>
+            
 
               <button onClick={()=>{handleLike(eachpost._id)}}>{eachpost.likes.noOfLikes}Like</button>
               <input type="text" onChange={handleComment} id='comment' placeholder='Comment Here!' />

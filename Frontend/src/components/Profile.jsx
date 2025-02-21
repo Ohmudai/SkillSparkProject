@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import '../../css/profile.css'
 import axios from 'axios';
+import {Helmet} from 'react-helmet'
+
 export default function Profile() {
   const [sourceimg,setSourceimg] = useState('');
   const[imagesrc,setImagesrc]=useState('');
@@ -71,14 +73,16 @@ export default function Profile() {
 
   return (
     <div id='outlet'>
+      <Helmet><title>profile</title></Helmet>
       <div id='content_div'>
         <div id='profile_pic'><img src={sourceimg || imagesrc} /></div>
         <form action="#" onSubmit={handleSubmit}>
-        <input type="file" onChange={handleChange} />
+          <label id='labelForDp' htmlFor="photoChoose">Edit profile pic</label>
+        <input type="file" id="photoChoose" onChange={handleChange} style={{display:"none"}} />
         <input type="submit" />
         </form>
         
-        <div><h2>Welcome {localStorage.getItem("username")}!</h2></div>
+        <div id='showusernamecontainer' ><h2 id='showusername'>Welcome {localStorage.getItem("username")}!</h2></div>
 
 
 

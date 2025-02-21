@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import  {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios';
+import {Helmet} from 'react-helmet'
+import '../../css/Register.css'
+
 export default function Register() {
   const [formData,setFormData] = useState({
     userName:'',
@@ -45,21 +48,26 @@ export default function Register() {
   
   return (
     <>
-      <div id='register_form'>
-        <form action="#" onSubmit={handleSubmit}>
-          <label  htmlFor="Username">Username</label><br />
-          <input id='Username' type="text" name='userName' value={formData.userName} onChange={handlechange} /><br />
-          <label htmlFor="email">E-mail</label><br />        
-          <input id='email' name='email' type="text" value={formData.email} onChange={handlechange} /><br />
-          <label htmlFor="password">Password</label><br />
-          <input id='password' name='password' type="password" value={formData.password} onChange={handlechange} /><br />
-          <label htmlFor="password">Confirm Password</label><br />
-          <input id='crfpassword' name='crfPassword' type="password" value={crfPassowrd} onChange={(e)=>{
-            setCrfPassword(e.target.value);
-          }} /><br />
-          <input type="submit" />
-          <Link to='/login'>Login</Link>
-        </form>
+    <Helmet><title>Register</title></Helmet>
+      <div id='register_main_container'>
+          <div id='form_container'>
+            <form action="#" onSubmit={handleSubmit}>
+              <label  htmlFor="Username">Username</label><br />
+              <input id='Username' type="text" name='userName' value={formData.userName} onChange={handlechange} /><br />
+              <label htmlFor="email">E-mail</label><br />        
+              <input id='email' name='email' type="text" value={formData.email} onChange={handlechange} /><br />
+              <label htmlFor="password">Password</label><br />
+              <input id='password' name='password' type="password" value={formData.password} onChange={handlechange} /><br />
+              <label htmlFor="password">Confirm Password</label><br />
+              <input id='crfpassword' name='crfPassword' type="password" value={crfPassowrd} onChange={(e)=>{
+                setCrfPassword(e.target.value);
+              }} /><br />
+              <input type="submit" />
+              
+            </form>
+            <Link to='/login' id='link'>Login</Link>
+          </div>
+
       </div>
       
     

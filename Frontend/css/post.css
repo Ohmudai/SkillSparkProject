@@ -28,3 +28,18 @@
     transition: 0.3s all;
   }
 }
+#dropdown_container{
+  display: flex;
+  
+  justify-content: flex-end;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  /* border: 1px solid red; */
+}
+#dropdown_menu{
+  position: absolute;
+  white-space: nowrap;
+  top: 30px;
+
+}

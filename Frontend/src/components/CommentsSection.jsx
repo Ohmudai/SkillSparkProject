@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router';
+import {Helmet} from 'react-helmet'
+
 
 
 export default function CommentsSection() {
@@ -20,6 +22,7 @@ export default function CommentsSection() {
   return (
    
     <div>
+      <Helmet><title>Comments</title></Helmet>
         {allComments.length==0?<div>No Comments Available</div>:(allComments.map((eachComments)=>{
 
           return <div>{eachComments}</div>

@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import axios from 'axios';
-import { AuthContext } from './AuthContext.jsx';
-
+import '../../css/Login.css'
+import {Helmet} from 'react-helmet'
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -43,15 +44,19 @@ const handleSubmit = async (e)=>{
 
   return (
     <>
-      <div id='main_container'>
+    <Helmet><title>Login</title></Helmet>
+      <div id='main_containerLogin'>
 
+          <div id='form_container'>
           <form action="#" onSubmit={handleSubmit}>
               <label htmlFor="email">Email</label><br />
-              <input type="text"name='email' onChange={handleChange} /><br />
+              <input type="text"name='email' placeholder ='Email' onChange={handleChange} /><br />
               <label htmlFor="password">Password</label>  <br />
-              <input type="password" name='password' onChange={handleChange} /><br />
+              <input type="password" placeholder ='Password' name='password' onChange={handleChange} /><br />
               <input type="submit" />
           </form>
+          <Link to='/'>Register</Link>
+          </div>
 
 
       </div>

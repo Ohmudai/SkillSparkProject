@@ -5,7 +5,7 @@
 
 #profile_pic{
   margin: 20px;
-  border: 1px solid red;
+  border: 1px solid rgb(184, 183, 183);
   width: 200px;
   height: 200px;
   
@@ -16,5 +16,38 @@
     width: inherit;
     height: inherit;
     border-radius: inherit;
+  }
+}
+#labelForDp{
+  margin: 10px;
+  border:none;
+  background-color: rgb(184, 183, 183);
+  padding: 8px 13px 8px 13px;
+  border-radius: 10px;
+}
+
+#showusernamecontainer{
+  display: inline-block;
+}
+#showusername{
+  display: inline-block;
+border-right: 1px solid black;
+white-space: nowrap;
+animation-name: anmation_showusername;
+animation-timing-function: steps(50);
+overflow: hidden;
+/* animation-direction: alternate;
+animation-iteration-count: infinite; */
+animation-fill-mode: forwards;
+animation-duration: 2s;
+
+}
+@keyframes anmation_showusername{
+  0%{
+     width :0%;
+  }
+  100%{
+     width: 105%;
+     border-right: none;
   }
 }
